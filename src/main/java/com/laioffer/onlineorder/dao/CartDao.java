@@ -18,7 +18,7 @@ public class CartDao {
             session = sessionFactory.openSession();
             OrderItem orderItem = session.get(OrderItem.class, cartItemId);
             Cart cart = orderItem.getCart();
-            cart.getOrderItemsList().remove(orderItem);
+            cart.getOrderItemList().remove(orderItem);
             //先要去除引用，再可以成功删除
 
             session.beginTransaction();
@@ -37,7 +37,7 @@ public class CartDao {
     }
 
     public void removeAllCartItems(Cart cart) {
-        for (OrderItem item : cart.getOrderItemsList()) {
+        for (OrderItem item : cart.getOrderItemList()) {
             removeCartItem(item.getId());
         }
     }

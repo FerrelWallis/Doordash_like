@@ -26,7 +26,7 @@ public class CartService {
         if (customer != null) {
             Cart cart = customer.getCart();
             double totalPrice = 0.0;
-            for (OrderItem item : cart.getOrderItemsList()) {
+            for (OrderItem item : cart.getOrderItemList()) {
                 totalPrice += item.getPrice() * item.getQuantity();
             }
             cart.setTotalPrice(totalPrice);
