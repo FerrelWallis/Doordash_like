@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+<body>
+<h1>state * event * datacommunication</h1>
+<div id="app"></div>
+
+<script type="text/javascript">
+    const test = document.getElementById('app');
+
+</script>
+
+<script type="text/babel">
+    class App extends React.Component {
+        constructor() {
+            super();
+            // this.state = {
+            //     a: 1
+            // }
+        }
+        state = {
+            a:1,
+            w:100,
+            h:100
+        }
+
+        change = () => {
+            console.log(1);
+            this.setState(preState => {
+                return{
+                    a: this.state.a + 10
+                }
+            });
+
+            this.setState( preState => {
+                return {
+                    b:"current a is : "
+                }
+            });
+        }
+
+        render() {
+            const {a,w,h} = this.state;
+            return (
+                <div>
+                    <p>the data is : {this.state.a} </p>
+                    <div style={{width: w, height: h, background: "#ccc"}}></div>
+                    <button onClick={
+                        // () => {
+                        //     this.setState({
+                        //         a:"haha"
+                        //     })
+                        // }
+                        () => {
+                            this.setState((preState) => {
+                                console.log(preState);
+                                return {
+                                    w : preState.w + 10,
+                                    h : preState.h + 10
+                                }
+                            })
+                        }
+                    }>click me + 10</button>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(
+        <App num = {10}/>,
+        document.getElementById('app')
+    )
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+<body>
+<div id="app"></div>
+
+<script type="text/babel">
+    // const ele = React.createElement('div', {className: 'box'}, );
+    // const ele2 = React.createElement('p', {key: 1}, 'this is a p');
+    // const ele3 = React.createElement('div', {className: 'box'}, 'hello react!', [ele2]);
+    //
+    // //jsx is better
+    // const ele1 = <div className = 'box'>
+    //     this is a box
+    //     <p>this is a p</p>
+    // </div>
+
+    // const a = 10;
+    // const ele1 = <div>a: { a }</div>;
+    // const arr = [<li key = '1'>1</li>, <li key="2">2</li>, <li key="3">3</li> ];
+    // const obj = {a : 1, b : 2, c : 3}
+    // const fn = function (user) {
+    //     return user.a + " " + user.b;
+    // }
+    // const map = arr.map((item, index) => {
+    //     return <li key={index}>{item}</li>
+    // });
+    // const ele1 = <div>
+    //     <ul>
+    //         {arr[0]}
+    //     </ul>
+    //     <br/>
+    //     <ul>
+    //         {arr[1]}
+    //     </ul>
+    //     <br/>
+    //     <ul>
+    //         {arr[2]}
+    //     </ul>
+    //     <br/>
+    //     <ul>
+    //         {JSON.stringify(obj)}
+    //     </ul>
+    //     <br/>
+    //     <ul>
+    //         {fn({a: 1, b: 2})}
+    //     </ul>
+    //     <br/>
+    //     <ol>
+    //         {
+    //             map
+    //         }
+    //     </ol>
+    // </div>
+
+    // ReactDOM.render(
+    //     ele1,
+    //     document.getElementById('app')
+    // )
+
+    // function Hello(props) {
+    //     return <div>
+    //         this is a hello component!
+    //         <br/>
+    //         name : {props.name}
+    //         <br/>
+    //         age : {props.ages}
+    //     </div>;
+    // }
+    //
+    // ReactDOM.render(
+    //     <Hello name = {'Joe'} ages = {10}/>,
+    //     document.getElementById('app')
+    // )
+
+    class Hello2 extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+
+        render() {
+            const {name, age} = this.props;
+            return <div>
+                this is Hello Component class!!!
+                <br/>
+                name : {name}
+                <br/>
+                age : {age}
+            </div>
+        }
+    }
+
+    ReactDOM.render(
+        <Hello2 name = {'Joe'} age = {10}/>,
+        document.getElementById('app')
+    )
+
+
+
+
+</script>
+</body>
+</html>

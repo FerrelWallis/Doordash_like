@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+</head>
+<body>
+<div id="app"></div>
+<script type="text/babel">
+    //react component
+    //class -> props, state, life cycle fn
+    //function -> props, state X, l.c.f? X
+
+    // class App extends React.Component {
+    //     constructor() {
+    //         super();
+    //         this.state = {
+    //             count : 0
+    //         }
+    //     }
+    //
+    //     render() {
+    //         const {count} = this.state
+    //         return (
+    //             <div>
+    //                 <h4>Click {count} times</h4>
+    //                 <button onClick= {thid.add}></button>
+    //             </div>
+    //         )
+    //     }
+    //
+    //     add = () => {
+    //         this.setState(preState => ({count : preState.count + 1}))
+    //     }
+    //
+    //
+    // }
+    //
+    //
+    // ReactDOM.render(
+    //     <App />,
+    //     document.getElementById('app')
+    // )
+
+
+
+    function App() {
+        const [count, setCount] = React.useState(0);
+        const [step, setStep] = React.useState(0);
+        const onStepChange = () => {
+            setStep(preState => preState + 1)
+        }
+
+        //didMount + didUpdate
+        React.useEffect(() => {
+            console.log(`effort hook called, the count is ${count}`);
+            setTimeout(() => {
+                setCount(count + 1)
+            }, 1000)
+        }, [])
+
+        return (
+            <div>
+                <h4>Click {count} time !</h4>
+                <button onClick={
+                    () => {
+                        //count -> count + 1
+                        setCount(count  + 1)
+                    }
+                }>Click me + 1</button>
+                <hr/>
+                <h4>Today I have taken {step} steps!</h4>
+                <button onClick={onStepChange}>I took another step</button>
+            </div>
+        )
+    }
+
+    // class App extends React.Component {
+    //     state = {
+    //         count : 0
+    //     }
+    //     render() {
+    //         return (
+    //             <div>
+    //                 <h4>Chilck {this.state.count} times</h4>
+    //                 <button onClick={
+    //                     () => {
+    //                         this.setState(preState => ({
+    //                             count: preState.count + 1
+    //                         }))
+    //                     }
+    //
+    //                 }>click me + 1</button>
+    //             </div>
+    //         )
+    //     }
+    //
+    //     componentDidMount() {
+    //         console.log(`the count is ${this.state.count}`);
+    //     }
+    //
+    // }
+
+    ReactDOM.render(
+        <App />,
+        document.getElementById('app')
+    )
+
+</script>
+</body>
+</html>

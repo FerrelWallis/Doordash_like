@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="onlineOrder exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/onlineOrder_exploded</output-path>
+    <root id="root" />
+  </artifact>
+</component>
